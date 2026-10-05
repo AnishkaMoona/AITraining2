@@ -1,0 +1,1920 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Year-End Team Night</title>
+    <meta
+      name="description"
+      content="One-page event website for the Year-End Team Night on Friday 12 December at the Office Rooftop, Level 12, featuring a live countdown, timeline agenda, dress code tips, interactive FAQ, and RSVP."
+    />
+    <meta property="og:title" content="Year-End Team Night" />
+    <meta
+      property="og:description"
+      content="One-page event website for the Year-End Team Night on Friday 12 December at the Office Rooftop, Level 12, featuring a live countdown, timeline agenda, dress code tips, interactive FAQ, and RSVP."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts: Cormorant Garamond (Display), Plus Jakarta Sans (Body), JetBrains Mono (Tabular Numerals) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        /* 60% Dominant Neutral Canvas: Deep Midnight Navy */
+        --bg-canvas: #091024;
+        --bg-canvas-elevated: #0f1a36;
+        --bg-surface: #132042;
+        --bg-surface-hover: #182852;
+
+        /* 30% Structural Surfaces & Typography */
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --text-muted: #94a3b8;
+        --border-subtle: rgba(255, 255, 255, 0.08);
+        --border-gold-hairline: rgba(212, 175, 55, 0.24);
+        --border-gold-strong: rgba(212, 175, 55, 0.55);
+
+        /* 10% Accent Budget: Warm Festive Gold */
+        --gold-primary: #d4af37;
+        --gold-bright: #e6c65a;
+        --gold-soft: #f3e5ab;
+        --gold-tint: rgba(212, 175, 55, 0.1);
+        --gold-glow: rgba(212, 175, 55, 0.16);
+
+        /* Typography */
+        --font-display: "Cormorant Garamond", Georgia, serif;
+        --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+
+        /* Layout & Motion */
+        --container-max: 1120px;
+        --header-height: 64px;
+        --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(var(--header-height) + 20px);
+        background-color: var(--bg-canvas);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      body {
+        min-height: 100vh;
+        background-color: var(--bg-canvas);
+        background-image:
+          radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.11) 0%, transparent 55%),
+          radial-gradient(circle at 85% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+        color: var(--text-primary);
+        letter-spacing: 0.01em;
+        overflow-x: hidden;
+      }
+
+      /* Focus Accessibility */
+      :focus-visible {
+        outline: 2px solid var(--gold-bright);
+        outline-offset: 3px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: var(--container-max);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* ==========================================================================
+         Sticky Top Navigation (Strict 3-Zone Contract, <15% Mobile Viewport Cap)
+         ========================================================================== */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        height: var(--header-height);
+        background-color: rgba(9, 16, 36, 0.88);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-gold-hairline);
+      }
+
+      .header-inner {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      /* Zone 1: Brand Title (Single text element wordmark) */
+      .brand-wordmark {
+        font-family: var(--font-display);
+        font-size: 1.35rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: color 160ms var(--ease-out);
+      }
+
+      .brand-wordmark:hover {
+        color: var(--gold-soft);
+      }
+
+      /* Zone 2: Navigation Links */
+      .primary-nav {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .nav-link {
+        position: relative;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        text-decoration: none;
+        white-space: nowrap;
+        padding: 6px 0;
+        transition: color 160ms var(--ease-out);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1.5px;
+        background-color: var(--gold-primary);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 180ms var(--ease-out);
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--gold-soft);
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      /* Zone 3: Primary Action & Mobile Toggle */
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+      }
+
+      .btn-header-rsvp {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 18px;
+        min-height: 40px;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--bg-canvas);
+        background-color: var(--gold-primary);
+        border: 1px solid var(--gold-bright);
+        border-radius: 6px;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: transform 160ms var(--ease-out), opacity 160ms var(--ease-out), background-color 160ms var(--ease-out);
+      }
+
+      .btn-header-rsvp:hover {
+        background-color: var(--gold-bright);
+        transform: translateY(-1px);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background: transparent;
+        border: 1px solid var(--border-gold-hairline);
+        border-radius: 6px;
+        color: var(--text-primary);
+        cursor: pointer;
+        transition: border-color 160ms var(--ease-out);
+      }
+
+      .mobile-menu-btn:hover {
+        border-color: var(--gold-primary);
+      }
+
+      /* Mobile Navigation Drawer */
+      .mobile-nav-drawer {
+        display: none;
+        background-color: var(--bg-canvas-elevated);
+        border-bottom: 1px solid var(--border-gold-hairline);
+        padding: 12px 24px 16px;
+      }
+
+      .mobile-nav-drawer.open {
+        display: block;
+      }
+
+      .mobile-nav-list {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        list-style: none;
+      }
+
+      .mobile-nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 44px;
+        padding: 8px 12px;
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9375rem;
+        font-weight: 500;
+        border-radius: 6px;
+        transition: background-color 150ms var(--ease-out), color 150ms var(--ease-out);
+      }
+
+      .mobile-nav-link:hover,
+      .mobile-nav-link.active {
+        background-color: var(--gold-tint);
+        color: var(--gold-soft);
+      }
+
+      /* ==========================================================================
+         Section Typography & Structural Rules
+         ========================================================================== */
+      section {
+        padding: 88px 0;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .section-header {
+        margin-bottom: 48px;
+        max-width: 680px;
+      }
+
+      .section-kicker {
+        font-size: 0.8125rem;
+        font-weight: 500;
+        color: var(--gold-primary);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .section-title {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 3.8vw, 2.75rem);
+        font-weight: 600;
+        line-height: 1.15;
+        color: var(--text-primary);
+        text-wrap: balance;
+        margin-bottom: 14px;
+      }
+
+      .section-lead {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        max-width: 65ch;
+      }
+
+      /* ==========================================================================
+         Section 1: Hero (Big Event Name, Date & Venue, Live Countdown Timer)
+         ========================================================================== */
+      .hero-section {
+        padding: 72px 0 88px;
+        position: relative;
+      }
+
+      .hero-frame {
+        border: 1px solid var(--border-gold-hairline);
+        background: linear-gradient(180deg, rgba(19, 32, 66, 0.72) 0%, rgba(15, 26, 54, 0.92) 100%);
+        border-radius: 12px;
+        padding: clamp(28px, 5vw, 56px);
+        position: relative;
+      }
+
+      /* Subtle corner gold accents */
+      .hero-frame::before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: 32px;
+        right: 32px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+      }
+
+      .hero-metadata {
+        font-size: 0.8125rem;
+        color: var(--gold-soft);
+        margin-bottom: 18px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .meta-sep {
+        color: var(--gold-primary);
+        opacity: 0.7;
+      }
+
+      .hero-title {
+        font-family: var(--font-display);
+        font-size: clamp(2.75rem, 6.5vw, 4.75rem);
+        font-weight: 600;
+        line-height: 1.04;
+        color: var(--text-primary);
+        letter-spacing: -0.01em;
+        text-wrap: balance;
+        margin-bottom: 20px;
+      }
+
+      .hero-title em {
+        font-style: italic;
+        color: var(--gold-soft);
+        font-weight: 500;
+      }
+
+      .hero-description {
+        font-size: clamp(1rem, 1.4vw, 1.125rem);
+        color: var(--text-secondary);
+        max-width: 64ch;
+        margin-bottom: 36px;
+      }
+
+      /* Event Key Facts Strip (Date, Time, Venue, Dress Code) */
+      .event-facts-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-top: 1px solid var(--border-gold-hairline);
+        border-bottom: 1px solid var(--border-gold-hairline);
+        padding: 24px 0;
+        margin-bottom: 40px;
+        gap: 24px;
+      }
+
+      .fact-item {
+        padding-right: 16px;
+        border-right: 1px solid var(--border-subtle);
+      }
+
+      .fact-item:last-child {
+        border-right: none;
+        padding-right: 0;
+      }
+
+      .fact-label {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-bottom: 6px;
+        display: block;
+      }
+
+      .fact-value {
+        font-family: var(--font-display);
+        font-size: 1.35rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        line-height: 1.25;
+      }
+
+      .fact-sub {
+        font-size: 0.875rem;
+        color: var(--gold-soft);
+        margin-top: 4px;
+      }
+
+      /* Countdown Block */
+      .countdown-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .countdown-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .countdown-heading {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+      }
+
+      .countdown-target-note {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--gold-primary);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .countdown-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .countdown-unit {
+        background-color: rgba(9, 16, 36, 0.75);
+        border: 1px solid var(--border-gold-hairline);
+        border-radius: 8px;
+        padding: 20px 16px;
+        text-align: center;
+      }
+
+      .countdown-number {
+        font-family: var(--font-mono);
+        font-size: clamp(1.85rem, 4vw, 2.75rem);
+        font-weight: 600;
+        color: var(--gold-soft);
+        line-height: 1.1;
+        font-variant-numeric: tabular-nums;
+        display: block;
+      }
+
+      .countdown-label {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-top: 8px;
+        display: block;
+      }
+
+      .hero-cta-row {
+        margin-top: 36px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .btn-primary-gold {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 28px;
+        min-height: 48px;
+        background-color: var(--gold-primary);
+        color: var(--bg-canvas);
+        font-size: 0.9375rem;
+        font-weight: 600;
+        border: 1px solid var(--gold-bright);
+        border-radius: 6px;
+        text-decoration: none;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: background-color 160ms var(--ease-out), transform 160ms var(--ease-out);
+      }
+
+      .btn-primary-gold:hover {
+        background-color: var(--gold-bright);
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary-outline {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 24px;
+        min-height: 48px;
+        background-color: transparent;
+        color: var(--text-primary);
+        font-size: 0.9375rem;
+        font-weight: 500;
+        border: 1px solid var(--border-gold-hairline);
+        border-radius: 6px;
+        text-decoration: none;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: border-color 160ms var(--ease-out), color 160ms var(--ease-out), background-color 160ms var(--ease-out);
+      }
+
+      .btn-secondary-outline:hover {
+        border-color: var(--gold-primary);
+        color: var(--gold-soft);
+        background-color: var(--gold-tint);
+      }
+
+      /* ==========================================================================
+         Section 2: Agenda as a Timeline
+         ========================================================================== */
+      .timeline {
+        position: relative;
+        max-width: 860px;
+        margin-top: 16px;
+        padding-left: 32px;
+      }
+
+      /* Vertical Gold Hairline Track */
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        bottom: 10px;
+        left: 7px;
+        width: 1px;
+        background: linear-gradient(
+          180deg,
+          var(--gold-primary) 0%,
+          rgba(212, 175, 55, 0.35) 85%,
+          transparent 100%
+        );
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-bottom: 36px;
+      }
+
+      .timeline-item:last-child {
+        padding-bottom: 0;
+      }
+
+      /* Timeline Gold Marker Node */
+      .timeline-marker {
+        position: absolute;
+        left: -32px;
+        top: 6px;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: var(--bg-canvas);
+        border: 2px solid var(--gold-primary);
+        box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.12);
+        transition: transform 160ms var(--ease-out), background-color 160ms var(--ease-out);
+      }
+
+      .timeline-item:hover .timeline-marker {
+        background-color: var(--gold-primary);
+        transform: scale(1.15);
+      }
+
+      .timeline-card {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: 8px;
+        padding: 24px 28px;
+        transition: border-color 180ms var(--ease-out), transform 180ms var(--ease-out);
+      }
+
+      .timeline-item:hover .timeline-card {
+        border-color: var(--border-gold-hairline);
+        transform: translateX(4px);
+      }
+
+      .timeline-meta {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+
+      .timeline-time {
+        font-family: var(--font-mono);
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--gold-primary);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .timeline-location {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      .timeline-title {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+      }
+
+      .timeline-desc {
+        font-size: 0.9375rem;
+        color: var(--text-secondary);
+        max-width: 65ch;
+      }
+
+      /* ==========================================================================
+         Section 3: Dress Code & What to Bring (Three Short Tips)
+         ========================================================================== */
+      .dress-banner {
+        border-left: 2px solid var(--gold-primary);
+        padding: 8px 0 8px 20px;
+        margin-bottom: 36px;
+      }
+
+      .dress-banner-label {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-bottom: 4px;
+      }
+
+      .dress-banner-value {
+        font-family: var(--font-display);
+        font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+        font-weight: 600;
+        color: var(--gold-soft);
+      }
+
+      .tips-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .tip-card {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-gold-hairline);
+        border-radius: 8px;
+        padding: 28px 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: border-color 180ms var(--ease-out), transform 180ms var(--ease-out);
+      }
+
+      .tip-card:hover {
+        border-color: var(--border-gold-strong);
+        transform: translateY(-2px);
+      }
+
+      .tip-index {
+        font-family: var(--font-mono);
+        font-size: 0.8125rem;
+        font-weight: 500;
+        color: var(--gold-primary);
+        margin-bottom: 14px;
+        display: block;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .tip-title {
+        font-family: var(--font-display);
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        line-height: 1.25;
+        margin-bottom: 12px;
+        text-wrap: balance;
+      }
+
+      .tip-body {
+        font-size: 0.9375rem;
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+      }
+
+      .tip-note {
+        font-size: 0.8125rem;
+        color: var(--gold-soft);
+        padding-top: 14px;
+        border-top: 1px solid var(--border-subtle);
+      }
+
+      /* ==========================================================================
+         Section 4: FAQ (4 Questions with Answers that Open and Close When Clicked)
+         ========================================================================== */
+      .faq-header-row {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 36px;
+      }
+
+      .faq-header-row .section-header {
+        margin-bottom: 0;
+      }
+
+      .faq-toggle-all {
+        background: transparent;
+        border: 1px solid var(--border-gold-hairline);
+        color: var(--gold-soft);
+        font-family: var(--font-sans);
+        font-size: 0.8125rem;
+        font-weight: 500;
+        padding: 8px 16px;
+        min-height: 40px;
+        border-radius: 6px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: border-color 160ms var(--ease-out), background-color 160ms var(--ease-out);
+      }
+
+      .faq-toggle-all:hover {
+        border-color: var(--gold-primary);
+        background-color: var(--gold-tint);
+      }
+
+      .faq-list {
+        max-width: 860px;
+        border-top: 1px solid var(--border-gold-hairline);
+      }
+
+      .faq-item {
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .faq-trigger {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 24px 8px;
+        min-height: 64px;
+        background: transparent;
+        border: none;
+        text-align: left;
+        cursor: pointer;
+        color: var(--text-primary);
+        font-family: var(--font-display);
+        font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+        font-weight: 600;
+        line-height: 1.3;
+        transition: color 160ms var(--ease-out);
+      }
+
+      .faq-trigger:hover {
+        color: var(--gold-soft);
+      }
+
+      .faq-icon {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid var(--border-gold-hairline);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold-primary);
+        transition: transform 200ms var(--ease-out), background-color 200ms var(--ease-out), border-color 200ms var(--ease-out);
+      }
+
+      .faq-item.is-open .faq-icon {
+        transform: rotate(45deg);
+        background-color: var(--gold-tint);
+        border-color: var(--gold-primary);
+      }
+
+      .faq-panel {
+        display: grid;
+        grid-template-rows: 0fr;
+        opacity: 0;
+        transition: grid-template-rows 200ms var(--ease-out), opacity 180ms var(--ease-out);
+      }
+
+      .faq-item.is-open .faq-panel {
+        grid-template-rows: 1fr;
+        opacity: 1;
+      }
+
+      .faq-panel-inner {
+        overflow: hidden;
+      }
+
+      .faq-answer {
+        padding: 0 48px 24px 8px;
+        font-size: 0.96875rem;
+        color: var(--text-secondary);
+        max-width: 68ch;
+      }
+
+      /* ==========================================================================
+         Section 5: Big RSVP Button Section
+         ========================================================================== */
+      .rsvp-section {
+        border-bottom: none;
+        padding: 88px 0 104px;
+      }
+
+      .rsvp-card {
+        background: linear-gradient(135deg, #132042 0%, #0d1732 100%);
+        border: 1px solid var(--border-gold-strong);
+        border-radius: 12px;
+        padding: clamp(32px, 6vw, 64px);
+        text-align: center;
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .rsvp-title {
+        font-family: var(--font-display);
+        font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+        font-weight: 600;
+        color: var(--text-primary);
+        line-height: 1.12;
+        text-wrap: balance;
+        margin-bottom: 16px;
+      }
+
+      .rsvp-copy {
+        font-size: 1.0625rem;
+        color: var(--text-secondary);
+        max-width: 56ch;
+        margin: 0 auto 32px;
+      }
+
+      .btn-big-rsvp {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 18px 42px;
+        min-height: 58px;
+        font-family: var(--font-sans);
+        font-size: 1.0625rem;
+        font-weight: 600;
+        color: var(--bg-canvas);
+        background-color: var(--gold-primary);
+        border: 1px solid var(--gold-soft);
+        border-radius: 8px;
+        text-decoration: none;
+        white-space: nowrap;
+        box-shadow: 0 10px 30px -6px rgba(212, 175, 55, 0.35);
+        transition: transform 160ms var(--ease-out), background-color 160ms var(--ease-out);
+      }
+
+      .btn-big-rsvp:hover {
+        background-color: var(--gold-bright);
+        transform: translateY(-2px);
+      }
+
+      .btn-big-rsvp:active {
+        transform: translateY(0);
+      }
+
+      .rsvp-subnote {
+        margin-top: 20px;
+        font-size: 0.8125rem;
+        color: var(--text-muted);
+      }
+
+      /* ==========================================================================
+         Quiet Footer
+         ========================================================================== */
+      .site-footer {
+        border-top: 1px solid var(--border-subtle);
+        padding: 36px 0;
+        font-size: 0.8125rem;
+        color: var(--text-muted);
+      }
+
+      .footer-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .footer-links {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .footer-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 150ms var(--ease-out);
+      }
+
+      .footer-link:hover {
+        color: var(--gold-soft);
+      }
+
+      /* ==========================================================================
+         Responsive Mobile & Tablet Rules
+         ========================================================================== */
+      @media (max-width: 860px) {
+        .primary-nav {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: inline-flex;
+        }
+
+        .event-facts-grid {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .fact-item {
+          border-right: none;
+          border-bottom: 1px solid var(--border-subtle);
+          padding-right: 0;
+          padding-bottom: 16px;
+        }
+
+        .fact-item:last-child {
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+
+        .tips-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        :root {
+          --header-height: 58px;
+        }
+
+        .container {
+          padding: 0 18px;
+        }
+
+        section {
+          padding: 64px 0;
+        }
+
+        .hero-section {
+          padding: 36px 0 64px;
+        }
+
+        .hero-frame {
+          padding: 24px 20px;
+        }
+
+        .countdown-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+
+        .hero-cta-row {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .btn-primary-gold,
+        .btn-secondary-outline,
+        .btn-big-rsvp {
+          width: 100%;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+
+        .timeline {
+          padding-left: 24px;
+        }
+
+        .timeline-marker {
+          left: -24px;
+        }
+
+        .timeline-card {
+          padding: 18px 20px;
+        }
+
+        .faq-answer {
+          padding-right: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sticky Top Menu (Strict 3-Zone Top Bar Contract) -->
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <!-- Zone 1: Brand Wordmark -->
+        <a href="#hero" class="brand-wordmark">Year-End Team Night</a>
+
+        <!-- Zone 2: Section Navigation Links -->
+        <nav class="primary-nav" aria-label="Section navigation">
+          <a href="#hero" class="nav-link active" data-section="hero">Overview</a>
+          <a href="#agenda" class="nav-link" data-section="agenda">Agenda</a>
+          <a href="#dress-code" class="nav-link" data-section="dress-code">Dress Code</a>
+          <a href="#faq" class="nav-link" data-section="faq">FAQ</a>
+          <a href="#rsvp" class="nav-link" data-section="rsvp">RSVP</a>
+        </nav>
+
+        <!-- Zone 3: Primary Action + Mobile Menu Toggle -->
+        <div class="header-actions">
+          <a
+            href="https://forms.google.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-header-rsvp"
+          >
+            RSVP Now
+          </a>
+          <button
+            type="button"
+            class="mobile-menu-btn"
+            id="mobile-menu-toggle"
+            aria-expanded="false"
+            aria-controls="mobile-nav-drawer"
+            aria-label="Toggle navigation menu"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="3" y1="7" x2="21" y2="7" id="menu-line-1"></line>
+              <line x1="3" y1="12" x2="21" y2="12" id="menu-line-2"></line>
+              <line x1="3" y1="17" x2="21" y2="17" id="menu-line-3"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Collapsible Mobile Menu Drawer -->
+      <nav class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="#hero" class="mobile-nav-link" data-section="hero">Overview</a></li>
+          <li><a href="#agenda" class="mobile-nav-link" data-section="agenda">Agenda</a></li>
+          <li><a href="#dress-code" class="mobile-nav-link" data-section="dress-code">Dress Code</a></li>
+          <li><a href="#faq" class="mobile-nav-link" data-section="faq">FAQ</a></li>
+          <li><a href="#rsvp" class="mobile-nav-link" data-section="rsvp">RSVP</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- 1. HERO SECTION -->
+      <section id="hero" class="hero-section">
+        <div class="container">
+          <div class="hero-frame">
+            <div class="hero-metadata">
+              <span>Annual Celebration</span>
+              <span class="meta-sep" aria-hidden="true">·</span>
+              <span>Friday 12 December</span>
+              <span class="meta-sep" aria-hidden="true">·</span>
+              <span>Office Rooftop, Level 12</span>
+            </div>
+
+            <h1 class="hero-title">
+              Year-End <em>Team Night</em>
+            </h1>
+
+            <p class="hero-description">
+              Join colleagues from across every team under the city lights as we raise a glass to a
+              remarkable year of shared milestones, enjoy a seasonal three-course rooftop dinner,
+              and celebrate the people who made it happen.
+            </p>
+
+            <!-- Core Event Details -->
+            <div class="event-facts-grid">
+              <div class="fact-item">
+                <span class="fact-label">Date &amp; Time</span>
+                <div class="fact-value">Friday 12 December</div>
+                <div class="fact-sub">6:00 pm to 10:00 pm</div>
+              </div>
+
+              <div class="fact-item">
+                <span class="fact-label">Venue</span>
+                <div class="fact-value">Office rooftop, Level 12</div>
+                <div class="fact-sub">Skyline Terrace &amp; Winter Conservatory</div>
+              </div>
+
+              <div class="fact-item">
+                <span class="fact-label">Dress Code</span>
+                <div class="fact-value">Smart casual</div>
+                <div class="fact-sub">With a touch of gold</div>
+              </div>
+            </div>
+
+            <!-- Live Countdown Timer -->
+            <div class="countdown-wrapper" aria-live="polite">
+              <div class="countdown-header">
+                <span class="countdown-heading" id="countdown-status-label">
+                  Live countdown to welcome drinks
+                </span>
+                <span class="countdown-target-note" id="countdown-target-display">
+                  Target: Fri 12 Dec · 18:00
+                </span>
+              </div>
+
+              <div class="countdown-grid">
+                <div class="countdown-unit">
+                  <span class="countdown-number" id="cd-days">00</span>
+                  <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-unit">
+                  <span class="countdown-number" id="cd-hours">00</span>
+                  <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-unit">
+                  <span class="countdown-number" id="cd-minutes">00</span>
+                  <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-unit">
+                  <span class="countdown-number" id="cd-seconds">00</span>
+                  <span class="countdown-label">Seconds</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hero Actions -->
+            <div class="hero-cta-row">
+              <a
+                href="https://forms.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary-gold"
+              >
+                <span>Confirm Your RSVP</span>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 17L17 7"></path>
+                  <path d="M7 7h10v10"></path>
+                </svg>
+              </a>
+              <button type="button" class="btn-secondary-outline" id="download-ics-btn">
+                Save to Calendar (.ics)
+              </button>
+              <a href="#agenda" class="btn-secondary-outline">View Evening Schedule</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. AGENDA SECTION (TIMELINE) -->
+      <section id="agenda">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">
+              <span>01</span>
+              <span class="meta-sep" aria-hidden="true">·</span>
+              <span>Order of the Evening</span>
+            </div>
+            <h2 class="section-title">Agenda &amp; Evening Timeline</h2>
+            <p class="section-lead">
+              Four hours of conversation, seasonal dining, team honors, and friendly competition on
+              the Level 12 Rooftop from 6:00 pm until 10:00 pm.
+            </p>
+          </div>
+
+          <div class="timeline">
+            <!-- 6:00 Welcome drinks -->
+            <article class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <div class="timeline-card">
+                <div class="timeline-meta">
+                  <time class="timeline-time" datetime="18:00">6:00 pm</time>
+                  <span class="timeline-location">West Sunset Terrace</span>
+                </div>
+                <h3 class="timeline-title">Welcome drinks</h3>
+                <p class="timeline-desc">
+                  Ease into the evening with chilled vintage sparkling wine, rosemary-citrus
+                  botanical spritzes, craft local lagers, and warm spiced orchard cider served
+                  alongside passed artisanal canapés as dusk settles over the skyline.
+                </p>
+              </div>
+            </article>
+
+            <!-- 6:45 Dinner -->
+            <article class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <div class="timeline-card">
+                <div class="timeline-meta">
+                  <time class="timeline-time" datetime="18:45">6:45 pm</time>
+                  <span class="timeline-location">Glasshouse Dining Pavilion</span>
+                </div>
+                <h3 class="timeline-title">Dinner</h3>
+                <p class="timeline-desc">
+                  Gather for a seated three-course winter harvest menu featuring pan-roasted sea
+                  bass, slow-braised short rib, and wild mushroom truffle risotto, accompanied by
+                  shared family-style sides and sommelier-paired wines.
+                </p>
+              </div>
+            </article>
+
+            <!-- 7:45 Awards -->
+            <article class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <div class="timeline-card">
+                <div class="timeline-meta">
+                  <time class="timeline-time" datetime="19:45">7:45 pm</time>
+                  <span class="timeline-location">Main Stage &amp; Conservatory</span>
+                </div>
+                <h3 class="timeline-title">Awards</h3>
+                <p class="timeline-desc">
+                  Raise a glass during our annual Year-End Toast and peer-nominated Golden Compass
+                  Awards—celebrating breakout launches, quiet problem-solvers, cross-team mentors,
+                  and the most memorable moments of the year.
+                </p>
+              </div>
+            </article>
+
+            <!-- 8:30 Games -->
+            <article class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <div class="timeline-card">
+                <div class="timeline-meta">
+                  <time class="timeline-time" datetime="20:30">8:30 pm</time>
+                  <span class="timeline-location">Sky Lounge &amp; Games Deck</span>
+                </div>
+                <h3 class="timeline-title">Games</h3>
+                <p class="timeline-desc">
+                  Form your dream squad for fast-paced rooftop trivia, tabletop shuffleboard, and
+                  lightning-round music bingo. Extra gold points and curated hampers await the top
+                  three teams on the leaderboard.
+                </p>
+              </div>
+            </article>
+
+            <!-- 9:30 Photo booth -->
+            <article class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <div class="timeline-card">
+                <div class="timeline-meta">
+                  <time class="timeline-time" datetime="21:30">9:30 pm</time>
+                  <span class="timeline-location">Gold-Foil Portrait Studio</span>
+                </div>
+                <h3 class="timeline-title">Photo booth</h3>
+                <p class="timeline-desc">
+                  Step in front of our open-air portrait camera with custom metallic props, instant
+                  keepsake prints, and digital gallery downloads while enjoying late-night espresso
+                  martinis and warm churros before carriages at 10:00 pm.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. DRESS CODE AND WHAT TO BRING (THREE SHORT TIPS) -->
+      <section id="dress-code">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">
+              <span>02</span>
+              <span class="meta-sep" aria-hidden="true">·</span>
+              <span>Preparation &amp; Style Guide</span>
+            </div>
+            <h2 class="section-title">Dress Code &amp; What to Bring</h2>
+            <p class="section-lead">
+              We want everyone to feel comfortable, festive, and ready for an indoor-outdoor
+              rooftop evening. Keep these three quick tips in mind before heading up to Level 12.
+            </p>
+          </div>
+
+          <div class="dress-banner">
+            <div class="dress-banner-label">Official Dress Code</div>
+            <div class="dress-banner-value">Smart casual, with a touch of gold</div>
+          </div>
+
+          <div class="tips-grid">
+            <!-- Tip 1 -->
+            <article class="tip-card">
+              <div>
+                <span class="tip-index">01. Style Tip</span>
+                <h3 class="tip-title">Smart casual, with a touch of gold</h3>
+                <p class="tip-body">
+                  Pair relaxed evening tailoring—such as a structured blazer, silk blouse, crisp
+                  button-down, or midi dress—with a subtle nod to our theme. No full formalwear
+                  required.
+                </p>
+              </div>
+              <div class="tip-note">
+                Easy ideas: Gold cufflinks, a metallic pocket square, statement earrings, watch, or
+                shimmer scarf.
+              </div>
+            </article>
+
+            <!-- Tip 2 -->
+            <article class="tip-card">
+              <div>
+                <span class="tip-index">02. Rooftop Comfort</span>
+                <h3 class="tip-title">Pack a warm layer for the terrace</h3>
+                <p class="tip-body">
+                  While the Level 12 dining pavilion is glass-enclosed and heated, welcome drinks
+                  and sunset views take place on the open sky deck where December evening breezes
+                  can be brisk.
+                </p>
+              </div>
+              <div class="tip-note">
+                Complimentary coat check is staffed right outside the Level 12 elevator lobby all
+                evening.
+              </div>
+            </article>
+
+            <!-- Tip 3 -->
+            <article class="tip-card">
+              <div>
+                <span class="tip-index">03. Arrival Essentials</span>
+                <h3 class="tip-title">Bring your staff pass &amp; photo ID</h3>
+                <p class="tip-body">
+                  Building security switches to after-hours mode at 6:00 pm. Please bring your
+                  employee access badge or mobile pass to tap through the ground-floor turnstiles
+                  and express rooftop lift.
+                </p>
+              </div>
+              <div class="tip-note">
+                All food, drinks, game entries, and rideshare return vouchers are fully covered.
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. FAQ SECTION (4 QUESTIONS WITH CLICK-TO-TOGGLE ANSWERS) -->
+      <section id="faq">
+        <div class="container">
+          <div class="faq-header-row">
+            <div class="section-header">
+              <div class="section-kicker">
+                <span>03</span>
+                <span class="meta-sep" aria-hidden="true">·</span>
+                <span>Good to Know</span>
+              </div>
+              <h2 class="section-title">Frequently Asked Questions</h2>
+              <p class="section-lead">
+                Click any question below for details on dining accommodations, weather plans, guest
+                policies, and getting home safely.
+              </p>
+            </div>
+
+            <button type="button" class="faq-toggle-all" id="faq-toggle-all-btn">
+              Expand All Answers
+            </button>
+          </div>
+
+          <div class="faq-list" id="faq-accordion">
+            <!-- Question 1 -->
+            <div class="faq-item is-open">
+              <h3>
+                <button
+                  type="button"
+                  class="faq-trigger"
+                  aria-expanded="true"
+                  aria-controls="faq-panel-1"
+                  id="faq-btn-1"
+                >
+                  <span>1. How are dietary requirements and food allergies handled?</span>
+                  <span class="faq-icon" aria-hidden="true">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                </button>
+              </h3>
+              <div
+                class="faq-panel"
+                id="faq-panel-1"
+                role="region"
+                aria-labelledby="faq-btn-1"
+              >
+                <div class="faq-panel-inner">
+                  <p class="faq-answer">
+                    Our catering kitchen accommodates vegetarian, vegan, gluten-free, dairy-free,
+                    halal, and kosher diets, as well as severe nut or shellfish allergies. Simply
+                    note your requirements on the RSVP Google Form by Friday 5 December, and a
+                    personalized menu card will be waiting at your place setting.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="faq-item">
+              <h3>
+                <button
+                  type="button"
+                  class="faq-trigger"
+                  aria-expanded="false"
+                  aria-controls="faq-panel-2"
+                  id="faq-btn-2"
+                >
+                  <span>2. Can I bring a plus-one or partner to the event?</span>
+                  <span class="faq-icon" aria-hidden="true">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                </button>
+              </h3>
+              <div
+                class="faq-panel"
+                id="faq-panel-2"
+                role="region"
+                aria-labelledby="faq-btn-2"
+              >
+                <div class="faq-panel-inner">
+                  <p class="faq-answer">
+                    Because seating on the Level 12 Rooftop is tailored to our headcount, the
+                    Year-End Team Night is exclusively for team members so everyone can connect
+                    across departments. Partners and families are warmly invited to our Annual
+                    Mid-Year Family Picnic.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="faq-item">
+              <h3>
+                <button
+                  type="button"
+                  class="faq-trigger"
+                  aria-expanded="false"
+                  aria-controls="faq-panel-3"
+                  id="faq-btn-3"
+                >
+                  <span>3. What happens if it rains or is too windy on the rooftop?</span>
+                  <span class="faq-icon" aria-hidden="true">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                </button>
+              </h3>
+              <div
+                class="faq-panel"
+                id="faq-panel-3"
+                role="region"
+                aria-labelledby="faq-btn-3"
+              >
+                <div class="faq-panel-inner">
+                  <p class="faq-answer">
+                    Rain or shine, the celebration goes ahead on Level 12. Two-thirds of the
+                    rooftop is covered by a climate-controlled glass conservatory with panoramic
+                    city views, and our motorized pergola louvres seal the terrace completely in
+                    inclement weather.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="faq-item">
+              <h3>
+                <button
+                  type="button"
+                  class="faq-trigger"
+                  aria-expanded="false"
+                  aria-controls="faq-panel-4"
+                  id="faq-btn-4"
+                >
+                  <span>4. Is parking available, and how do rideshare vouchers work?</span>
+                  <span class="faq-icon" aria-hidden="true">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                </button>
+              </h3>
+              <div
+                class="faq-panel"
+                id="faq-panel-4"
+                role="region"
+                aria-labelledby="faq-btn-4"
+              >
+                <div class="faq-panel-inner">
+                  <p class="faq-answer">
+                    Free parking is available in Basement Levels B1 and B2 (vehicles may also be
+                    left overnight until Saturday at 2:00 pm if you choose to enjoy a drink). If
+                    you are taking a cab or rideshare home, pick up a pre-paid voucher card from
+                    the coat-check desk any time after 9:00 pm.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. BIG RSVP BUTTON SECTION -->
+      <section id="rsvp" class="rsvp-section">
+        <div class="container">
+          <div class="rsvp-card">
+            <div class="section-kicker" style="justify-content: center;">
+              <span>04</span>
+              <span class="meta-sep" aria-hidden="true">·</span>
+              <span>Save Your Seat</span>
+            </div>
+
+            <h2 class="rsvp-title">Ready to Celebrate on Level 12?</h2>
+
+            <p class="rsvp-copy">
+              Please submit your attendance, main course selection, and any song requests for the
+              rooftop playlist via our official RSVP form by <strong>Friday 5 December</strong>.
+            </p>
+
+            <a
+              href="https://forms.google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-big-rsvp"
+            >
+              <span>RSVP via Google Forms</span>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+
+            <p class="rsvp-subnote">
+              Opens forms.google.com in a new tab · Questions? Reach the People &amp; Culture team
+              on #year-end-night
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Quiet Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          Year-End Team Night · Friday 12 December, 6:00 pm – 10:00 pm · Office rooftop, Level 12
+        </div>
+        <div class="footer-links">
+          <a href="#hero" class="footer-link">Back to Top</a>
+          <a href="#agenda" class="footer-link">Agenda</a>
+          <a href="#dress-code" class="footer-link">Dress Code</a>
+          <a href="#faq" class="footer-link">FAQ</a>
+          <a
+            href="https://forms.google.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-link"
+          >
+            Google Forms RSVP
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Vanilla JavaScript (Countdown, FAQ Accordion, Mobile Menu, Active Scroll Spy, .ICS Export) -->
+    <script>
+      (function () {
+        "use strict";
+
+        /* ========================================================================
+           1. Live Countdown Timer to 12 December, 6:00 pm (18:00:00)
+           ======================================================================== */
+        var daysEl = document.getElementById("cd-days");
+        var hoursEl = document.getElementById("cd-hours");
+        var minutesEl = document.getElementById("cd-minutes");
+        var secondsEl = document.getElementById("cd-seconds");
+        var statusLabelEl = document.getElementById("countdown-status-label");
+        var targetDisplayEl = document.getElementById("countdown-target-display");
+
+        function getEventTargetDate() {
+          var now = new Date();
+          var year = now.getFullYear();
+          // Month is 0-indexed: 11 = December. 18:00:00 = 6:00 pm, 22:00:00 = 10:00 pm
+          var eventStart = new Date(year, 11, 12, 18, 0, 0);
+          var eventEnd = new Date(year, 11, 12, 22, 0, 0);
+
+          // If this year's Dec 12 10:00 pm has already passed, count down to next year's Dec 12 6:00 pm
+          if (now.getTime() > eventEnd.getTime()) {
+            year += 1;
+            eventStart = new Date(year, 11, 12, 18, 0, 0);
+            eventEnd = new Date(year, 11, 12, 22, 0, 0);
+          }
+
+          return {
+            year: year,
+            start: eventStart,
+            end: eventEnd
+          };
+        }
+
+        function padTwoDigits(num) {
+          return num < 10 ? "0" + num : String(num);
+        }
+
+        function updateCountdown() {
+          var now = new Date();
+          var targetInfo = getEventTargetDate();
+          var diffMs = targetInfo.start.getTime() - now.getTime();
+
+          if (targetDisplayEl) {
+            targetDisplayEl.textContent = "12 Dec " + targetInfo.year + " · 6:00 pm – 10:00 pm";
+          }
+
+          // Event is currently live (between 6:00 pm and 10:00 pm on Dec 12)
+          if (diffMs <= 0 && now.getTime() <= targetInfo.end.getTime()) {
+            daysEl.textContent = "00";
+            hoursEl.textContent = "00";
+            minutesEl.textContent = "00";
+            secondsEl.textContent = "00";
+            if (statusLabelEl) {
+              statusLabelEl.textContent =
+                "The Year-End Team Night is happening right now on Level 12!";
+            }
+            return;
+          }
+
+          var totalSeconds = Math.max(0, Math.floor(diffMs / 1000));
+          var days = Math.floor(totalSeconds / 86400);
+          var hours = Math.floor((totalSeconds % 86400) / 3600);
+          var minutes = Math.floor((totalSeconds % 3600) / 60);
+          var seconds = totalSeconds % 60;
+
+          daysEl.textContent = padTwoDigits(days);
+          hoursEl.textContent = padTwoDigits(hours);
+          minutesEl.textContent = padTwoDigits(minutes);
+          secondsEl.textContent = padTwoDigits(seconds);
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        /* ========================================================================
+           2. FAQ Accordion (Open/Close on Click + Expand/Collapse All)
+           ======================================================================== */
+        var faqItems = Array.prototype.slice.call(document.querySelectorAll(".faq-item"));
+        var toggleAllBtn = document.getElementById("faq-toggle-all-btn");
+
+        function updateToggleAllLabel() {
+          if (!toggleAllBtn) return;
+          var allOpen = faqItems.every(function (item) {
+            return item.classList.contains("is-open");
+          });
+          toggleAllBtn.textContent = allOpen ? "Collapse All Answers" : "Expand All Answers";
+        }
+
+        faqItems.forEach(function (item) {
+          var trigger = item.querySelector(".faq-trigger");
+          if (!trigger) return;
+
+          trigger.addEventListener("click", function () {
+            var isOpen = item.classList.contains("is-open");
+            if (isOpen) {
+              item.classList.remove("is-open");
+              trigger.setAttribute("aria-expanded", "false");
+            } else {
+              item.classList.add("is-open");
+              trigger.setAttribute("aria-expanded", "true");
+            }
+            updateToggleAllLabel();
+          });
+        });
+
+        if (toggleAllBtn) {
+          toggleAllBtn.addEventListener("click", function () {
+            var allOpen = faqItems.every(function (item) {
+              return item.classList.contains("is-open");
+            });
+            var nextState = !allOpen;
+
+            faqItems.forEach(function (item) {
+              var trigger = item.querySelector(".faq-trigger");
+              if (nextState) {
+                item.classList.add("is-open");
+                if (trigger) trigger.setAttribute("aria-expanded", "true");
+              } else {
+                item.classList.remove("is-open");
+                if (trigger) trigger.setAttribute("aria-expanded", "false");
+              }
+            });
+
+            updateToggleAllLabel();
+          });
+        }
+
+        /* ========================================================================
+           3. Mobile Navigation Drawer & Active Section Scroll-Spy
+           ======================================================================== */
+        var mobileMenuBtn = document.getElementById("mobile-menu-toggle");
+        var mobileDrawer = document.getElementById("mobile-nav-drawer");
+        var mobileLinks = Array.prototype.slice.call(
+          document.querySelectorAll(".mobile-nav-link")
+        );
+        var desktopLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-link"));
+
+        function closeMobileMenu() {
+          if (!mobileDrawer || !mobileMenuBtn) return;
+          mobileDrawer.classList.remove("open");
+          mobileMenuBtn.setAttribute("aria-expanded", "false");
+        }
+
+        if (mobileMenuBtn && mobileDrawer) {
+          mobileMenuBtn.addEventListener("click", function () {
+            var isOpen = mobileDrawer.classList.contains("open");
+            if (isOpen) {
+              closeMobileMenu();
+            } else {
+              mobileDrawer.classList.add("open");
+              mobileMenuBtn.setAttribute("aria-expanded", "true");
+            }
+          });
+        }
+
+        mobileLinks.forEach(function (link) {
+          link.addEventListener("click", function () {
+            closeMobileMenu();
+          });
+        });
+
+        // Highlight active section in sticky navigation on scroll
+        var sectionIds = ["hero", "agenda", "dress-code", "faq", "rsvp"];
+        var sectionElements = sectionIds
+          .map(function (id) {
+            return document.getElementById(id);
+          })
+          .filter(Boolean);
+
+        function updateActiveNavOnScroll() {
+          var scrollPosition = window.scrollY + 140;
+          var currentSectionId = "hero";
+
+          for (var i = 0; i < sectionElements.length; i++) {
+            var sec = sectionElements[i];
+            if (sec.offsetTop <= scrollPosition) {
+              currentSectionId = sec.id;
+            }
+          }
+
+          // If scrolled to the very bottom of the page, highlight RSVP
+          if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 40) {
+            currentSectionId = "rsvp";
+          }
+
+          desktopLinks.forEach(function (link) {
+            var targetSec = link.getAttribute("data-section");
+            if (targetSec === currentSectionId) {
+              link.classList.add("active");
+            } else {
+              link.classList.remove("active");
+            }
+          });
+
+          mobileLinks.forEach(function (link) {
+            var targetSec = link.getAttribute("data-section");
+            if (targetSec === currentSectionId) {
+              link.classList.add("active");
+            } else {
+              link.classList.remove("active");
+            }
+          });
+        }
+
+        window.addEventListener("scroll", updateActiveNavOnScroll, { passive: true });
+        updateActiveNavOnScroll();
+
+        /* ========================================================================
+           4. Save to Calendar (.ics file generator)
+           ======================================================================== */
+        var downloadIcsBtn = document.getElementById("download-ics-btn");
+        if (downloadIcsBtn) {
+          downloadIcsBtn.addEventListener("click", function () {
+            var targetInfo = getEventTargetDate();
+            var y = targetInfo.year;
+
+            var icsContent = [
+              "BEGIN:VCALENDAR",
+              "VERSION:2.0",
+              "PRODID:-//Year-End Team Night//Event Invitation//EN",
+              "CALSCALE:GREGORIAN",
+              "METHOD:PUBLISH",
+              "BEGIN:VEVENT",
+              "SUMMARY:Year-End Team Night",
+              "DTSTART:" + y + "1212T180000",
+              "DTEND:" + y + "1212T220000",
+              "LOCATION:Office rooftop\\, Level 12",
+              "DESCRIPTION:Year-End Team Night (6:00 pm to 10:00 pm). Dress code: Smart casual\\, with a touch of gold. Agenda: 6:00 Welcome drinks\\, 6:45 Dinner\\, 7:45 Awards\\, 8:30 Games\\, 9:30 Photo booth. RSVP: https://forms.google.com",
+              "STATUS:CONFIRMED",
+              "END:VEVENT",
+              "END:VCALENDAR"
+            ].join("\r\n");
+
+            var blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement("a");
+            a.href = url;
+            a.download = "year-end-team-night.ics";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
